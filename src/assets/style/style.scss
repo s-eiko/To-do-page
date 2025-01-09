@@ -1,0 +1,59 @@
+@use 'reset';
+
+// Poppins
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$padding: 10px 15px;
+
+$primary-color: #98C1D9;
+$secondary-color: #25171A;
+
+$greater-font-weight: 600;
+$minor-font-weight: 300;
+
+$greater-font-size: 1.3rem;
+$minor-font-size: 0.7rem;
+
+@mixin section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+body {
+    background-color: $primary-color;
+}
+
+aside {
+    background-color: $secondary-color;
+    width: 25vw;
+    height: 100vh;
+    padding: $padding;
+}
+
+#top-menu {
+    @include section;
+
+    * {
+        color: $primary-color;
+        align-items: center;
+    }
+
+    #top-display {
+        display: grid;
+        grid-template-columns: calc((25vw - 30px) / 3) calc((25vw - 30px) / 3 * 2);
+    }
+
+    #menu-text {
+        font-weight: $greater-font-weight;
+        font-size: $greater-font-size;
+    }
+
+    #time-stats {
+        text-align: right;
+    }
+
+    #header-message {
+        text-align: center;
+    }
+}
