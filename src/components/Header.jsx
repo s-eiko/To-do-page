@@ -1,7 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
-export default function Header() {
+import { ProjectContext } from "../store/project-state-context";
+
+export default function Header({ handleAddProject }) {
     const [dateStats, setDateStats] = useState([]);
+
+    const { handleAddProject } = useContext(ProjectContext);
 
     // Fetching date stats
     useEffect(() => {
@@ -68,6 +72,10 @@ export default function Header() {
                 <div id="header-message">
                     Hello there, {localStorage.getItem('name')}!
                 </div>
+                <button onClick={handleAddProject}>
+                    <i class="bi bi-plus"></i>
+                    New project
+                </button>
             </div>
         </>
     );

@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import ProjectContextProvider from './store/project-state-context';
+
 import OpeningModal from './components/OpeningModal';
 import SideBar from './components/SideBar';
 
@@ -13,10 +15,10 @@ function App() {
   }
 
   return (
-    <>
+    <ProjectContextProvider>
       {storedName === null && <OpeningModal open={modalIsOpen} handleCloseDialog={handleCloseDialog}/>}
       <SideBar/>
-    </>
+    </ProjectContextProvider>
   );
 }
 
