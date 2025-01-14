@@ -35,6 +35,10 @@ body {
     background-color: $primary-color;
 }
 
+main {
+    display: flex;
+}
+
 aside {
     background-color: $secondary-color;
     width: 25vw;

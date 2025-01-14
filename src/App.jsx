@@ -135,12 +135,18 @@ function App() {
       const currentProject = projectState.projects.find(
         (project) => project.id === projectState.currentProject
       );
-      currentContent = <CurrentProject currentProject={currentProject} handleDeleteProject={handleDeleteProject} />;
+      currentContent = <CurrentProject
+        currentProject={currentProject}
+        handleDeleteProject={handleDeleteProject}
+        tasks={projectState.tasks}
+        handleAddTask={handleAddTask}
+        handleDeleteTask={handleDeleteTask}
+      />;
     }
 
 
   return (
-    <>
+    <main>
       {storedName === null && <OpeningModal open={modalIsOpen} handleCloseDialog={handleCloseDialog}/>}
       <SideBar
         projects={projectState.projects}
@@ -149,7 +155,7 @@ function App() {
         currentProject={projectState.currentProject}
       />
       {currentContent}
-    </>
+    </main>
   );
 } 
 

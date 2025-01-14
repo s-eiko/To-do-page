@@ -25,6 +25,10 @@ body {
   background-color: #98C1D9;
 }
 
+main {
+  display: flex;
+}
+
 aside {
   background-color: #25171A;
   width: 25vw;

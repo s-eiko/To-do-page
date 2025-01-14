@@ -1,4 +1,6 @@
-export default function CurrentProject({ currentProject, handleDeleteProject }) {
+import Tasks from "./Tasks";
+
+export default function CurrentProject({ currentProject, handleDeleteProject, tasks, handleAddTask, handleDeleteTask }) {
   if (!currentProject) return null;
 
   const formattedDate = new Date(currentProject.dueDate).toLocaleDateString('en-US', {
@@ -19,6 +21,7 @@ export default function CurrentProject({ currentProject, handleDeleteProject }) 
           <p>{formattedDate}</p>
           <p>{currentProject.description}</p>
         </div>
+        <Tasks tasks={tasks} handleAddTask={handleAddTask} handleDeleteTask={handleDeleteTask}/>
       </div>
   );
 }

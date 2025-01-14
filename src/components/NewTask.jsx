@@ -8,10 +8,10 @@ export default function NewTask({ handleAddTask }) {
     }
 
     function handleClick() {
-        if (enteredTask.trim() === '') {
+        if (newTask.trim() === '') {
             return;
         }
-        handleAddTask(enteredTask);
+        handleAddTask(newTask);
         setNewTask('');
     }
 
@@ -21,6 +21,7 @@ export default function NewTask({ handleAddTask }) {
                 cols="30"
                 className="input"
                 onChange={handleChange}
+                value={newTask}
             ></textarea>
             <button
                 className="button"
