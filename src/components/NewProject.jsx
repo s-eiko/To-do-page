@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 import Input from "./Input";
 
 export default function NewProject({ handleSetProject, handleCancelProject }) {
@@ -16,7 +18,17 @@ export default function NewProject({ handleSetProject, handleCancelProject }) {
             </div>
             <div className="button-area">
                 <button onClick={handleCancelProject} className="button">Cancel</button>
-                <button onClick={handleSetProject} className="button">Save</button>
+                <button
+                    onClick={() => handleSetProject({
+                        name: name.current.value,
+                        description: description.current.value,
+                        urgency: urgency.current.value,
+                        dueDate: dueDate.current.value
+                    })}
+                    className="button"
+                >
+                    Save
+                </button>
             </div>
         </div>
     );

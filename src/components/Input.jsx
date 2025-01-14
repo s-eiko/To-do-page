@@ -1,4 +1,6 @@
-export default function Input({ label, ref, type, ...props }) {
+import { forwardRef } from "react";
+
+const Input = forwardRef(function Input({ label, type, ...props }, ref) {
     return (
         <div className="input-section">
             <label>{label}</label>
@@ -9,4 +11,6 @@ export default function Input({ label, ref, type, ...props }) {
             )}
         </div>
     );
-};
+});
+
+export default Input;

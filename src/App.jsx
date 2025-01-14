@@ -3,7 +3,7 @@ import { useState } from 'react'
 import OpeningModal from './components/OpeningModal';
 import SideBar from './components/SideBar';
 import NewProject from './components/NewProject';
-import ProjectUndefined from './components/ProjectUndefined'
+import ProjectUndefined from './components/ProjectUndefined';
 import CurrentProject from './components/currentProject';
 
 function App() {
@@ -16,7 +16,8 @@ function App() {
        Id: modal of project with selected id open */
     tasks: []
   });
-  const [newId, setNewId] = useState(0);
+  const [newProjectId, setNewProjectId] = useState(0);
+  const [newTaskId, setNewTaskId] = useState(0);
 
   const storedName = localStorage.getItem('name');
 
@@ -38,18 +39,18 @@ function App() {
     setProjectState(prevState => {
       const newProject = {
         ...projectInfo,
-        id: newId
+        id: newProjectId
       };
+
+      setNewProjectId(prevId => {
+        return prevId++;
+      });
 
       return {
         ...prevState,
         currentProject: undefined,
         projects: [...prevState.projects, newProject]
       };
-    });
-
-    setNewId(prevId => {
-      return prevId++;
     });
   }
 
@@ -84,16 +85,59 @@ function App() {
     });
   }
 
-  // Setting the currentProject
-  const currentProject = projectState.projects.find(project => project.id === projectState.currentProject);
+  function handleAddTask(taskDescription) {
+    setProjectState((prevState) => {
+      const taskId = newTaskId;
+      const newTask = {
+        description: taskDescription,
+        projectId: prevState.currentProject,
+        id: taskId
+      };
 
+      setNewTaskId(prevId => {
+        return prevId++;
+      });
+
+      return {
+        ...prevState,
+        tasks: [newTask, ...prevState.tasks]
+      };
+    });
+  }
+
+  function handleDeleteTask(taskId) {
+    setProjectState((prevState) => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter((task) => task.id !== taskId)
+      };
+    });
+  }
+
+  // Setting the currentProject
+  /* const currentProject = projectState.projects.find(project => project.id === projectState.currentProject);
+  
   let currentContent =<CurrentProject currentProject={currentProject} handleDeleteProject={handleDeleteProject}/>;
 
   if (projectState.currentProject === null) {
-    currentContent = <NewProject handleSetProject={handleSetProject} handleCancelProject={handleCancelProject} />
+    currentContent = <NewProject handleSetProject={handleSetProject} handleCancelProject={handleCancelProject} />;
   } else if (projectState.currentProject === undefined) {
     currentContent = <ProjectUndefined handleAddProject={handleAddProject}/>;
-  }
+  } */
+
+    let currentContent;
+    
+    if (projectState.currentProject === null) {
+      currentContent = <NewProject handleSetProject={handleSetProject} handleCancelProject={handleCancelProject} />;
+    } else if (projectState.currentProject === undefined) {
+      currentContent = <ProjectUndefined handleAddProject={handleAddProject} />;
+    } else {
+      const currentProject = projectState.projects.find(
+        (project) => project.id === projectState.currentProject
+      );
+      currentContent = <CurrentProject currentProject={currentProject} handleDeleteProject={handleDeleteProject} />;
+    }
+
 
   return (
     <>
