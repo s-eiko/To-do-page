@@ -8,6 +8,8 @@ export default function CurrentProject({ currentProject, handleDeleteProject, ta
       month: 'long',
       day: 'numeric',
   });
+
+  console.log("Tasks in CurrentProject: " + tasks.length);
   
   return (
       <div className="current-project">

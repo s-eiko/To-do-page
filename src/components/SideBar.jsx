@@ -75,16 +75,10 @@ export default function SideBar({ projects, handleAddProject, handleSelectProjec
             </div>
             <ul id="projects-bar">
                 {projects.map((project) => {
-                    let cssClass = "project";
-
-                    if (project.id === currentProject) {
-                        cssClass += " selected";
-                    }
-
                     return (
                         <li key={project.id}>
                             <button
-                                className={cssClass}
+                                className="project"
                                 onClick={() => handleSelectProject(project.id)}
                             >
                                 {project.name}

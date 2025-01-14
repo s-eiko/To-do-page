@@ -11,7 +11,7 @@
   transition: all 0.25s;
 }
 
-#top-menu button {
+#undefined-project button, #top-menu button {
   display: flex;
   gap: 5px;
   justify-content: center;
@@ -73,6 +73,65 @@ aside {
 }
 #top-menu button:hover i {
   color: #98C1D9;
+}
+
+#projects-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  list-style-type: none;
+  padding: 15px 0;
+}
+#projects-bar .project {
+  width: 100%;
+  height: 120%;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: #25171A;
+  color: #98C1D9;
+}
+#projects-bar .project:hover {
+  width: 100%;
+  height: 120%;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: #25171A;
+  color: #98C1D9;
+  box-shadow: 0 0 3px 3px #98C1D9;
+}
+
+#undefined-project {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #25171A;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+}
+#undefined-project * {
+  align-items: center;
+}
+#undefined-project i {
+  color: #25171A;
+  font-size: 2.6rem;
+}
+#undefined-project h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+#undefined-project button {
+  color: #98C1D9;
+  background-color: #25171A;
+  width: 40%;
+  margin: 0 auto;
+}
+#undefined-project button:hover {
+  color: #25171A;
+  background-color: #98C1D9;
+  box-shadow: inset 0 0 0 2px #25171A;
 }
 
 /*# sourceMappingURL=final.css.map */

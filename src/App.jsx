@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { createContext, useState } from 'react'
 
 import OpeningModal from './components/OpeningModal';
 import SideBar from './components/SideBar';
@@ -16,8 +16,6 @@ function App() {
        Id: modal of project with selected id open */
     tasks: []
   });
-  const [newProjectId, setNewProjectId] = useState(0);
-  const [newTaskId, setNewTaskId] = useState(0);
 
   const storedName = localStorage.getItem('name');
 
@@ -39,12 +37,8 @@ function App() {
     setProjectState(prevState => {
       const newProject = {
         ...projectInfo,
-        id: newProjectId
+        id: Math.random()
       };
-
-      setNewProjectId(prevId => {
-        return prevId++;
-      });
 
       return {
         ...prevState,
@@ -87,16 +81,12 @@ function App() {
 
   function handleAddTask(taskDescription) {
     setProjectState((prevState) => {
-      const taskId = newTaskId;
+      const taskId = Math.random();
       const newTask = {
         description: taskDescription,
         projectId: prevState.currentProject,
         id: taskId
       };
-
-      setNewTaskId(prevId => {
-        return prevId++;
-      });
 
       return {
         ...prevState,
@@ -114,36 +104,26 @@ function App() {
     });
   }
 
-  // Setting the currentProject
-  /* const currentProject = projectState.projects.find(project => project.id === projectState.currentProject);
-  
-  let currentContent =<CurrentProject currentProject={currentProject} handleDeleteProject={handleDeleteProject}/>;
+  let currentContent;
 
+  console.log("Tasks in App: " + projectState.tasks.length);
+  
   if (projectState.currentProject === null) {
     currentContent = <NewProject handleSetProject={handleSetProject} handleCancelProject={handleCancelProject} />;
   } else if (projectState.currentProject === undefined) {
-    currentContent = <ProjectUndefined handleAddProject={handleAddProject}/>;
-  } */
-
-    let currentContent;
-    
-    if (projectState.currentProject === null) {
-      currentContent = <NewProject handleSetProject={handleSetProject} handleCancelProject={handleCancelProject} />;
-    } else if (projectState.currentProject === undefined) {
-      currentContent = <ProjectUndefined handleAddProject={handleAddProject} />;
-    } else {
-      const currentProject = projectState.projects.find(
-        (project) => project.id === projectState.currentProject
-      );
-      currentContent = <CurrentProject
-        currentProject={currentProject}
-        handleDeleteProject={handleDeleteProject}
-        tasks={projectState.tasks}
-        handleAddTask={handleAddTask}
-        handleDeleteTask={handleDeleteTask}
-      />;
-    }
-
+    currentContent = <ProjectUndefined handleAddProject={handleAddProject} />;
+  } else {
+    const currentProject = projectState.projects.find(
+      (project) => project.id === projectState.currentProject
+    );
+    currentContent = <CurrentProject
+      currentProject={projectState.currentProject}
+      handleDeleteProject={handleDeleteProject}
+      tasks={projectState.tasks}
+      handleAddTask={handleAddTask}
+      handleDeleteTask={handleDeleteTask}
+    />;
+  }
 
   return (
     <main>

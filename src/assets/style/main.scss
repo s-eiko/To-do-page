@@ -31,6 +31,16 @@ $minor-font-size: 0.7rem;
     padding: 8px 24px;
 }
 
+@mixin project {
+    width: 100%;
+    height: 120%;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: $secondary-color;
+    color: $primary-color;
+}
+
 body {
     background-color: $primary-color;
 }
@@ -92,5 +102,59 @@ aside {
         }
 
         box-shadow: inset 0 0 0 2px $primary-color;
+    }
+}
+
+#projects-bar {
+    @include section;
+
+    list-style-type: none;
+    padding: 15px 0;
+
+    .project {
+        @include project;
+    }
+
+    .project:hover {
+        @include project;
+        box-shadow: 0 0 3px 3px $primary-color;
+    }
+}
+
+#undefined-project {
+    @include section;
+
+    color: $secondary-color;
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+
+    * {
+        align-items: center;
+    }
+
+    i {
+        color: $secondary-color;
+        font-size: $greater-font-size * 2;
+    }
+
+    h3 {
+        font-size: $greater-font-size;
+        font-weight: $greater-font-weight;
+    }
+
+    button {
+        @extend %button;
+
+        color: $primary-color;
+        background-color: $secondary-color;
+        width: 40%;
+        margin: 0 auto;
+    }
+
+    button:hover {
+        color: $secondary-color;
+        background-color: $primary-color;
+        box-shadow: inset 0 0 0 2px $secondary-color;
     }
 }

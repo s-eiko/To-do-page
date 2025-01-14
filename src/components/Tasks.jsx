@@ -5,6 +5,8 @@ export default function Tasks({
     handleAddTask,
     handleDeleteTask
 }) {
+    console.log("Tasks in Tasks: " + tasks.length);
+
     return (
         <section>
             <h2>Tasks</h2>
@@ -15,7 +17,7 @@ export default function Tasks({
                 <ul className="tasks-section">
                     {tasks.map((task) => (
                         <li key={task.id}>
-                            <p>{tasks.text}</p>
+                            <p>{task.description}</p>
                             <button
                                 className="button"
                                 onClick={() => handleDeleteTask(task.id)}
