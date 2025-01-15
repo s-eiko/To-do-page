@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { useState } from 'react'
 
 import OpeningModal from './components/OpeningModal';
 import SideBar from './components/SideBar';
@@ -117,7 +117,7 @@ function App() {
       (project) => project.id === projectState.currentProject
     );
     currentContent = <CurrentProject
-      currentProject={projectState.currentProject}
+      currentProject={currentProject}
       handleDeleteProject={handleDeleteProject}
       tasks={projectState.tasks}
       handleAddTask={handleAddTask}

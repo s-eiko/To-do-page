@@ -18,7 +18,8 @@ export default function NewTask({ handleAddTask }) {
     return (
         <div className="task-info">
             <textarea
-                cols="30"
+                rows="1"
+                cols="40"
                 className="input"
                 onChange={handleChange}
                 value={newTask}
@@ -27,7 +28,7 @@ export default function NewTask({ handleAddTask }) {
                 className="button"
                 onClick={handleClick}
             >
-                <i class="bi bi-plus"></i>
+                <i className="bi bi-plus"></i>
                 Add new Task
             </button>
         </div>

@@ -12,18 +12,18 @@ export default function CurrentProject({ currentProject, handleDeleteProject, ta
   console.log("Tasks in CurrentProject: " + tasks.length);
   
   return (
-      <div className="current-project">
-        <div className="project-info">
-          <div className="header-info">
-            <h1 className="name">{currentProject.name}</h1>
-            <button className="button" onClick={handleDeleteProject}>
-              Delete
-            </button>
-          </div>
-          <p>{formattedDate}</p>
-          <p>{currentProject.description}</p>
+    <div className="current-project">
+      <div className="project-info">
+        <div className="header-info">
+          <h1 className="name">{currentProject.name}</h1>
+          <button className="button" onClick={handleDeleteProject}>
+            Delete project
+          </button>
         </div>
-        <Tasks tasks={tasks} handleAddTask={handleAddTask} handleDeleteTask={handleDeleteTask}/>
+        <p>{currentProject.description}</p>
+        <p>{formattedDate}</p>
       </div>
+      <Tasks tasks={tasks} handleAddTask={handleAddTask} handleDeleteTask={handleDeleteTask}/>
+    </div>
   );
 }

@@ -22,7 +22,7 @@ export default function Tasks({
                                 className="button"
                                 onClick={() => handleDeleteTask(task.id)}
                             >
-                                Delete
+                                Clear task
                             </button>
                         </li>
                     ))}

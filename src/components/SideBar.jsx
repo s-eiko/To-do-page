@@ -69,7 +69,7 @@ export default function SideBar({ projects, handleAddProject, handleSelectProjec
                     Hello there, {localStorage.getItem('name')}!
                 </div>
                 <button onClick={handleAddProject}>
-                    <i class="bi bi-plus"></i>
+                    <i className="bi bi-plus"></i>
                     New project
                 </button>
             </div>

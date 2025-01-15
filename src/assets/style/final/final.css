@@ -11,10 +11,17 @@
   transition: all 0.25s;
 }
 
-#undefined-project button, #top-menu button {
+.current-project section button, .current-project .project-info .header-info button, .project-data .button-area button, #undefined-project button, #top-menu button {
   display: flex;
   gap: 5px;
   justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  padding: 8px 24px;
+}
+
+.current-project section .task-info textarea, .project-data .input-area .input-section textarea, .project-data .input-area .input-section input {
   cursor: pointer;
   border-radius: 10px;
   border: none;
@@ -92,13 +99,6 @@ aside {
   color: #98C1D9;
 }
 #projects-bar .project:hover {
-  width: 100%;
-  height: 120%;
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-  background-color: #25171A;
-  color: #98C1D9;
   box-shadow: 0 0 3px 3px #98C1D9;
 }
 
@@ -132,6 +132,111 @@ aside {
   color: #25171A;
   background-color: #98C1D9;
   box-shadow: inset 0 0 0 2px #25171A;
+}
+
+.project-data {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #25171A;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+}
+.project-data .input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.project-data .input-area .input-section {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.project-data .input-area .input-section textarea, .project-data .input-area .input-section input {
+  color: #98C1D9;
+  background-color: #25171A;
+}
+.project-data .button-area {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+}
+.project-data .button-area button {
+  background-color: #25171A;
+  color: #98C1D9;
+}
+.project-data .button-area button:hover {
+  color: #25171A;
+  background-color: #98C1D9;
+  box-shadow: inset 0 0 0 2px #25171A;
+}
+
+.current-project {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #25171A;
+  width: 100%;
+  padding: 15px;
+}
+.current-project .project-info .header-info {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: space-between;
+}
+.current-project .project-info .header-info .name {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.current-project .project-info .header-info button {
+  background-color: #25171A;
+  color: #98C1D9;
+}
+.current-project .project-info .header-info button:hover {
+  color: #25171A;
+  background-color: #98C1D9;
+  box-shadow: inset 0 0 0 2px #25171A;
+}
+.current-project section h2 {
+  font-weight: 600;
+}
+.current-project section button {
+  background-color: #25171A;
+  color: #98C1D9;
+  padding: 4px 12px;
+}
+.current-project section button:hover {
+  color: #25171A;
+  background-color: #98C1D9;
+  box-shadow: inset 0 0 0 2px #25171A;
+}
+.current-project section .tasks-section {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 0;
+}
+.current-project section .tasks-section li {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: space-between;
+}
+.current-project section .task-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.current-project section .task-info textarea {
+  color: #98C1D9;
+  background-color: #25171A;
 }
 
 /*# sourceMappingURL=final.css.map */
