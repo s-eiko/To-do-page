@@ -4,7 +4,7 @@ import OpeningModal from './components/OpeningModal';
 import SideBar from './components/SideBar';
 import NewProject from './components/NewProject';
 import ProjectUndefined from './components/ProjectUndefined';
-import CurrentProject from './components/currentProject';
+import CurrentProject from './components/CurrentProject';
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(true);
