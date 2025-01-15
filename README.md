@@ -3,6 +3,8 @@
 ## Sobre
 Site da web que permite ao usuário organizar seus projetos e tarefas de forma prática, garantindo-o liberdade para criar projetos e descartá-los quando necessário, adicionando tarefas para cada um deles de acordo com sua preferência. Além disso, utiliza-se do World Time API para tornar o display do menu mais interessante, fornecendo ao usuário o dia da semana atual e o fuso-horário ao qual faz parte.
 
+Acesse em: https://todo-project-manager.netlify.app/
+
 ## Ferramentas utilizadas
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
