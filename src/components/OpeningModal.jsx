@@ -26,8 +26,10 @@ export default function OpeningModal({ open, handleCloseDialog }) {
         <dialog ref={dialog}>
             <form id="nameForm" onSubmit={handleSubmit}>
                 <p>What's your name?</p>
-                <textarea id="nameArea" cols='20' rows='1' onChange={handleChangeName}></textarea>
-                <button type="submit">Submit</button>
+                <div id="inputarea">
+                    <textarea id="nameArea" cols='20' rows='1' onChange={handleChangeName}></textarea>
+                    <button type="submit">Submit</button>
+                </div>
             </form>
         </dialog>
     );
